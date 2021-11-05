@@ -1,0 +1,60 @@
+kind: Model
+api_version: v1beta1
+metadata:
+  display_name: Extract SSP Population
+  name: extract-ssp-population
+  publisher: Newcastle University
+  summary: Tool for extracting population for a given SSP and year
+  source_code: https://github.com/OpenCLIM/extract-ssp-population
+  description: >
+    Creates a CSV file containing initial and final population, aggregated over the provided regions.
+    The population data and regions must use the same coordinate system
+
+spec:
+  inputs:
+    parameters:
+      - name: YEAR
+        title: Year
+        type: integer
+        description: The year to extract
+        default: 2030
+        required: true
+        min: 2030
+        max: 2100
+
+      - name: SSP
+        title: SSP
+        type: integer
+        description: The SSP to extract
+        default: 1
+        required: true
+        min: 1
+        max: 5
+
+      - name: REGION_FIELD
+        title: Region Field
+        type: integer
+        description: The column name that identifies each region
+        default: code
+        required: true
+
+    dataslots:
+      - name: SSP
+        description: CSV file containing the Population tab from the SSP database
+        default:
+          - d13b3f41-87ef-4a38-a414-02708642f2be
+        path: inputs/ssp
+        required: true
+
+      - name: Regions
+        description: File containing regions_paths to aggregate over
+        default:
+          - d0776cf1-e9d0-4bb7-b454-3eae8ee6a9ec
+        path: inputs/regions_paths
+        required: true
+
+  outputs:
+    datasets:
+      - name: outputs/population.csv
+        type: CSV
+        description: File containing initial and final population
