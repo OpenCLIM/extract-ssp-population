@@ -6,6 +6,6 @@ WORKDIR /src
 
 COPY script.py .
 
-RUN apt update && apt install -y python3-pip && pip install geopandas
+RUN apt update && apt install -y python3-pip python3-rtree && pip install geopandas
 
 CMD python script.py
