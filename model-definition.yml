@@ -50,7 +50,7 @@ spec:
         description: File containing regions_paths to aggregate over
         default:
           - d0776cf1-e9d0-4bb7-b454-3eae8ee6a9ec
-        path: inputs/regions_paths
+        path: inputs/regions
         required: true
 
   outputs:
