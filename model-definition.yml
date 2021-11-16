@@ -33,7 +33,7 @@ spec:
 
       - name: REGION_FIELD
         title: Region Field
-        type: integer
+        type: string
         description: The column name that identifies each region
         default: code
         required: true
