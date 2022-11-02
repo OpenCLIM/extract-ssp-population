@@ -48,5 +48,13 @@ population = gpd.sjoin(population, regions)
 logger.info('Summing population data for each region')
 population = population.groupby(region_field)[['initial_population', 'final_population']].sum()
 
+# write a metadata file
+with open(outputs/'metadata.csv', 'w') as f:
+    # write header row
+    f.write('PARAMETER, VALUE\n')
+    # write parameters and values
+    f.write('SSP,SSP%s\n' %ssp)
+    f.write('YEAR,%s\n' %year)
+    
 logger.info('Saving to CSV')
 population.to_csv(outputs/'population.csv')
