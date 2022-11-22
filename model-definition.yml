@@ -37,6 +37,13 @@ spec:
         description: The column name that identifies each region
         default: code
         required: true
+        
+      - name: RUN_PDO
+        title: Run Population Decrease Overwrite
+        type: boolean
+        description: Set as true to calculate the Overwrite decreases in population
+        default: false
+        required: true
 
     dataslots:
       - name: SSP
