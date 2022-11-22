@@ -15,7 +15,7 @@ outputs.mkdir(exist_ok=True)
 year = os.getenv('YEAR')
 ssp = os.getenv('SSP')
 region_field = os.getenv('REGION_FIELD')
-run_pdo = getenv('RUN_PDO')
+run_pdo = os.getenv('RUN_PDO')
 
 # get environment values
 # fetch Population Decrease Overwrite Value
